@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Agbo Nyakibe Jeffrey — IT professional, general service provider, and AI and technology enthusiast based in Port Harcourt, Nigeria.">
+  <meta name="theme-color" content="#080d19">
+  <meta property="og:title" content="Agbo Nyakibe Jeffrey | Professional Portfolio">
+  <meta property="og:description" content="Technology, technical services, project coordination, and innovation.">
+  <meta property="og:type" content="website">
+  <title>Agbo Nyakibe Jeffrey | Professional Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================
+   AGBO NYAKIBE JEFFREY — PORTFOLIO
+   Edit colours and spacing in :root below.
+   ========================================== */
+
+:root {
+  --bg: #080d19;
+  --bg-soft: #0d1525;
+  --panel: #111d31;
+  --blue: #4b8dff;
+  --cyan: #63d8f4;
+  --ink: #101827;
+  --muted: #667085;
+  --light: #f4f7fb;
+  --white: #ffffff;
+  --line-dark: rgba(255,255,255,.12);
+  --line-light: #e2e8f0;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --container: 1160px;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; background: var(--bg); color: var(--white); font-family: var(--font-body); line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img { display: block; max-width: 100%; }
+.container { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+.section { padding: 112px 0; position: relative; overflow: hidden; }
+.section-dark { background: var(--bg); }
+.section-light { background: var(--light); color: var(--ink); }
+.scroll-progress { position: fixed; z-index: 1001; top: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg,var(--blue),var(--cyan)); }
+
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(8,13,25,.88); border-bottom: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(18px); }
+.nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.brand { display: inline-flex; align-items: center; gap: 11px; font-family: var(--font-heading); font-size: 13px; letter-spacing: .12em; font-weight: 500; }
+.brand b { color: var(--cyan); font-weight: 700; }
+.brand-mark { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid rgba(99,216,244,.55); color: var(--cyan); border-radius: 10px; font-weight: 700; letter-spacing: 0; }
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 12px; color: #c1cada; }
+.nav-links a { transition: color .2s ease; }
+.nav-links a:hover { color: var(--cyan); }
+.nav-links .nav-contact { color: var(--white); border: 1px solid rgba(99,216,244,.45); border-radius: 7px; padding: 9px 14px; }
+.nav-contact span { color: var(--cyan); margin-left: 5px; }
+.menu-toggle { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; }
+.menu-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px; transition: .2s; }
+
+.hero { min-height: 690px; padding: 90px 0 35px; background: radial-gradient(ellipse at 82% 40%,rgba(38,94,170,.22),transparent 36%), radial-gradient(ellipse at 15% 85%,rgba(20,75,130,.13),transparent 32%), var(--bg); }
+.hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 55px; min-height: 500px; }
+.eyebrow { margin: 0 0 22px; color: var(--cyan); font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #61dfa8; box-shadow: 0 0 12px #61dfa8; margin-right: 8px; }
+.hero-kicker { margin: 0 0 8px; color: #94a3b8; font-size: 12px; letter-spacing: .22em; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { font-family: var(--font-heading); }
+.hero h1 { max-width: 700px; margin-bottom: 17px; font-size: clamp(48px,6.5vw,78px); line-height: 1.02; letter-spacing: -.065em; }
+.hero h1 span, .section-heading h2 span, .contact-copy h2 span, .cta-inner h2 span { color: var(--cyan); }
+.hero h2 { max-width: 620px; margin-bottom: 18px; color: #d7dfec; font-family: var(--font-body); font-size: 15px; line-height: 1.7; font-weight: 500; }
+.hero h2 i { color: var(--cyan); font-style: normal; padding: 0 3px; }
+.hero-description { max-width: 510px; color: #9ba9bc; font-size: 15px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 0 20px; border: 1px solid transparent; border-radius: 7px; cursor: pointer; font-size: 12px; font-weight: 700; transition: transform .2s, background .2s, border-color .2s; }
+.button:hover { transform: translateY(-3px); }
+.button-primary { color: #06101e; background: linear-gradient(110deg,var(--cyan),#83c8ff); }
+.button-primary:hover { background: #9beaff; }
+.button-secondary { color: white; border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.03); }
+.button-secondary:hover { border-color: var(--cyan); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 38px; color: #8492a8; font-size: 10px; }
+.meta-icon { color: var(--cyan); margin-right: 6px; font-size: 14px; }
+.hero-visual { position: relative; max-width: 420px; justify-self: center; width: 100%; padding: 18px 25px 35px; }
+.image-frame { position: relative; z-index: 2; height: 430px; overflow: hidden; border: 1px solid rgba(99,216,244,.35); border-radius: 190px 190px 18px 18px; background: linear-gradient(150deg,#1b3555,#101a2c 65%,#142d4b); box-shadow: 0 28px 90px rgba(0,0,0,.35); }
+.image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.image-placeholder { position: absolute; inset: 0; display: none; place-content: center; justify-items: center; gap: 12px; padding: 25px; text-align: center; color: #c6d7ed; background: radial-gradient(circle at 50% 35%,rgba(99,216,244,.18),transparent 40%), linear-gradient(150deg,#1b3555,#101a2c 65%,#142d4b); }
+.placeholder-icon { width: 54px; height: 54px; display: grid; place-items: center; border: 1px dashed rgba(99,216,244,.7); border-radius: 50%; color: var(--cyan); font-size: 28px; }
+.image-placeholder strong { font-size: 10px; letter-spacing: .16em; }
+.image-placeholder small { color: #91a4bd; font-size: 11px; }
+.image-placeholder code { color: var(--cyan); }
+.image-caption { position: absolute; bottom: 18px; left: 22px; display: flex; align-items: center; gap: 9px; color: #c7d4e5; font-size: 8px; letter-spacing: .15em; }
+.caption-line { width: 22px; height: 1px; background: var(--cyan); }
+.orbit { position: absolute; z-index: 1; border: 1px solid rgba(99,216,244,.18); border-radius: 50%; transform: rotate(-24deg); }
+.orbit-one { width: 490px; height: 190px; top: 120px; left: -35px; }
+.orbit-two { width: 450px; height: 250px; top: 100px; left: -15px; transform: rotate(45deg); }
+.floating-card { position: absolute; z-index: 3; right: -22px; bottom: 85px; display: flex; align-items: center; gap: 10px; padding: 12px 15px; border: 1px solid rgba(255,255,255,.13); border-radius: 10px; background: rgba(13,25,43,.9); box-shadow: 0 15px 35px rgba(0,0,0,.25); }
+.floating-icon { color: var(--cyan); font-size: 22px; }
+.floating-card b, .floating-card small { display: block; }
+.floating-card b { font-size: 10px; }
+.floating-card small { color: #9aaac0; font-size: 9px; }
+.hero-index { position: absolute; right: 0; top: 5px; color: #70839d; font-size: 9px; letter-spacing: .15em; writing-mode: vertical-rl; }
+.hero-bottom { display: flex; align-items: center; gap: 14px; color: #71819a; font-size: 8px; letter-spacing: .17em; }
+.scroll-line { width: 55px; height: 1px; background: linear-gradient(90deg,var(--cyan),transparent); }
+
+.two-column { display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; align-items: start; }
+.dark-eyebrow { color: #397bd8; }
+.section-heading h2, .contact-copy h2 { margin-bottom: 0; font-size: clamp(36px,4.5vw,55px); line-height: 1.12; letter-spacing: -.05em; }
+.section-heading h2 span, .contact-copy h2 span { color: #397bd8; }
+.about-copy { max-width: 600px; color: #566276; font-size: 14px; }
+.about-copy .lead { color: #17243a; font-family: var(--font-heading); font-size: 20px; line-height: 1.55; }
+.about-facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line-light); }
+.about-facts strong { display: block; color: #3479df; font-family: var(--font-heading); font-size: 24px; }
+.about-facts span { color: #697589; font-size: 10px; }
+
+.centered { max-width: 720px; margin: 0 auto 50px; text-align: center; }
+.section-intro { max-width: 580px; margin: 18px auto 0; color: #9aa8bb; font-size: 13px; }
+.skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; }
+.skill-card { position: relative; min-height: 280px; padding: 25px 21px; border: 1px solid var(--line-dark); border-radius: 12px; background: linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012)); transition: transform .25s,border-color .25s; }
+.skill-card:hover { transform: translateY(-6px); border-color: rgba(99,216,244,.55); }
+.card-number { position: absolute; top: 20px; right: 20px; color: #65758e; font-size: 9px; }
+.skill-symbol { margin: 10px 0 22px; color: var(--cyan); font-size: 29px; }
+.skill-card h3 { margin-bottom: 10px; font-size: 17px; }
+.skill-card p { min-height: 65px; color: #9aa8bb; font-size: 11px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag-list span { padding: 4px 7px; border: 1px solid rgba(255,255,255,.12); border-radius: 4px; color: #b9c7d9; font-size: 9px; }
+.skills-note { margin: 25px 0 0; color: #75859c; font-size: 10px; text-align: center; }
+
+.timeline { max-width: 850px; margin: 55px auto 0; }
+.timeline-item { position: relative; display: grid; grid-template-columns: 175px 1fr; gap: 35px; padding: 0 0 42px 28px; border-left: 1px solid #cbd7e6; }
+.timeline-item:last-child { padding-bottom: 0; border-left-color: transparent; }
+.timeline-marker { position: absolute; top: 3px; left: -6px; width: 11px; height: 11px; border: 2px solid #397bd8; border-radius: 50%; background: var(--light); box-shadow: 0 0 0 5px rgba(57,123,216,.1); }
+.timeline-date { color: #397bd8; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.timeline-content h3 { margin: -5px 0 5px; font-size: 21px; }
+.timeline-content p { max-width: 650px; margin-bottom: 0; color: #68758a; font-size: 12px; }
+.timeline-content .timeline-subtitle { margin-bottom: 10px; color: #273b59; font-size: 11px; font-weight: 700; }
+
+.projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+.project-card { overflow: hidden; border: 1px solid var(--line-dark); border-radius: 12px; background: #0d1626; }
+.project-art { position: relative; height: 210px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #14243b; }
+.project-art::before, .project-art::after { position: absolute; content: ""; border: 1px solid rgba(99,216,244,.18); border-radius: 50%; }
+.project-art::before { width: 280px; height: 280px; }
+.project-art::after { width: 390px; height: 170px; transform: rotate(-25deg); }
+.art-business { background: radial-gradient(circle at center,rgba(63,132,225,.3),transparent 55%),#111d31; }
+.art-cctv { background: radial-gradient(circle at 50% 50%,rgba(29,151,177,.2),transparent 50%),#101e2b; }
+.art-satellite { background: radial-gradient(circle at 50% 50%,rgba(63,132,225,.24),transparent 55%),#121c32; }
+.art-creative { background: radial-gradient(circle at 50% 50%,rgba(133,91,220,.24),transparent 55%),#1b1932; }
+.art-label, .art-footer { position: absolute; z-index: 2; color: #9db0c9; font-size: 8px; letter-spacing: .16em; }
+.art-label { top: 17px; left: 18px; }
+.art-footer { bottom: 17px; right: 18px; }
+.art-monogram { position: relative; z-index: 2; color: #edf7ff; font-family: var(--font-heading); font-size: 78px; font-weight: 700; letter-spacing: -.1em; }
+.art-monogram span { color: var(--cyan); }
+.camera-graphic, .satellite-graphic, .creative-graphic { position: relative; z-index: 2; color: var(--cyan); font-size: 82px; text-shadow: 0 0 40px rgba(99,216,244,.5); }
+.creative-graphic { color: #bba0ff; }
+.project-info { padding: 23px 25px 25px; }
+.project-topline { display: flex; justify-content: space-between; gap: 10px; color: #7588a3; font-size: 8px; letter-spacing: .12em; }
+.project-info h3 { margin: 13px 0 8px; font-size: 22px; }
+.project-info p { min-height: 58px; margin-bottom: 15px; color: #9aa8bb; font-size: 11px; }
+.text-link { color: var(--cyan); font-size: 11px; font-weight: 700; }
+.text-link span { margin-left: 7px; }
+.project-status { color: #8294ac; font-size: 10px; font-style: italic; }
+
+.education-layout { align-items: center; }
+.dark-intro { margin-left: 0; color: #697589; }
+.credentials { display: grid; gap: 13px; }
+.credential-card { display: flex; gap: 18px; padding: 22px; border: 1px solid #e0e7f0; border-radius: 10px; background: #fff; box-shadow: 0 10px 28px rgba(20,40,70,.035); }
+.credential-icon { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 10px; color: #3479df; background: #edf4ff; font-size: 20px; }
+.credential-type { margin-bottom: 4px; color: #397bd8; font-size: 8px; font-weight: 700; letter-spacing: .13em; }
+.credential-card h3 { margin-bottom: 2px; font-size: 17px; }
+.credential-card p:not(.credential-type) { margin-bottom: 3px; color: #536176; font-size: 11px; }
+.credential-place { color: #8a96a8; font-size: 10px; }
+
+.section-cta { padding: 90px 0; background: linear-gradient(110deg,#10203a,#0b1424 65%,#102b43); text-align: center; }
+.cta-inner { max-width: 720px; }
+.cta-inner h2 { margin-bottom: 15px; font-size: clamp(36px,5vw,56px); line-height: 1.12; letter-spacing: -.05em; }
+.cta-inner p:not(.eyebrow) { max-width: 550px; margin: 0 auto 25px; color: #9eacc0; font-size: 13px; }
+.contact-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; }
+.contact-copy h2 { margin-bottom: 18px; }
+.contact-intro { max-width: 390px; color: #697589; font-size: 13px; }
+.contact-details { display: grid; gap: 17px; margin-top: 32px; }
+.contact-details a { display: flex; align-items: center; gap: 13px; color: #1c2b41; font-size: 12px; font-weight: 600; }
+.contact-icon { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #dce5f0; border-radius: 9px; color: #397bd8; font-size: 17px; }
+.contact-details small { display: block; color: #8290a4; font-size: 8px; letter-spacing: .13em; }
+.social-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line-light); }
+.social-links a { color: #397bd8; font-size: 10px; font-weight: 700; }
+.contact-form { padding: 30px; border: 1px solid #e1e8f0; border-radius: 13px; background: white; box-shadow: 0 20px 55px rgba(20,40,70,.06); }
+.form-heading { display: flex; justify-content: space-between; margin-bottom: 24px; color: #8290a4; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
+.form-star { color: #397bd8; font-size: 18px; }
+.contact-form label { display: block; margin: 15px 0 6px; color: #26364d; font-size: 10px; font-weight: 700; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px 13px; border: 1px solid #dce4ee; border-radius: 6px; outline: none; color: #17243a; background: #fbfcfe; font-size: 11px; transition: border-color .2s,box-shadow .2s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: #4b8dff; box-shadow: 0 0 0 3px rgba(75,141,255,.1); }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.submit-button { width: 100%; margin-top: 18px; }
+.form-note { margin: 13px 0 0; color: #8793a5; font-size: 9px; }
+.site-footer { padding: 25px 0; border-top: 1px solid rgba(255,255,255,.1); background: #070b14; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-inner p, .footer-inner > span { margin: 0; color: #77859a; font-size: 9px; }
+.footer-brand { font-size: 11px; }
+.footer-brand .brand-mark { width: 30px; height: 30px; }
+.back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 50; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(99,216,244,.4); border-radius: 50%; color: var(--cyan); background: #101c30; opacity: 0; pointer-events: none; transform: translateY(10px); transition: .2s; }
+.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease,transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 950px) {
+  .nav-links { gap: 17px; }
+  .nav-links a { font-size: 11px; }
+  .hero-grid { gap: 25px; }
+  .hero h1 { font-size: clamp(45px,6vw,65px); }
+  .skills-grid { grid-template-columns: repeat(2,1fr); }
+  .two-column, .contact-layout { gap: 55px; }
+}
+@media (max-width: 720px) {
+  .container { width: min(100% - 36px, var(--container)); }
+  .section { padding: 78px 0; }
+  .nav { min-height: 68px; }
+  .menu-toggle { display: block; }
+  .nav-links { position: absolute; top: 68px; left: 0; right: 0; display: none; align-items: stretch; gap: 0; padding: 10px 22px 20px; border-bottom: 1px solid var(--line-dark); background: #0b1220; }
+  .nav-links.open { display: flex; flex-direction: column; }
+  .nav-links a { padding: 12px 5px; font-size: 13px; }
+  .nav-links .nav-contact { margin-top: 8px; text-align: center; }
+  .hero { padding-top: 65px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 42px; }
+  .hero-copy { text-align: left; }
+  .hero h1 { font-size: clamp(46px,12vw,66px); }
+  .hero h2 { font-size: 13px; }
+  .hero-meta { gap: 10px 18px; }
+  .hero-visual { width: min(100%,380px); }
+  .image-frame { height: 390px; }
+  .floating-card { right: -5px; }
+  .hero-index { right: 4px; }
+  .hero-bottom { margin-top: 20px; }
+  .two-column, .contact-layout { grid-template-columns: 1fr; gap: 35px; }
+  .section-heading h2, .contact-copy h2 { font-size: 42px; }
+  .about-copy .lead { font-size: 18px; }
+  .skills-grid { gap: 11px; }
+  .skill-card { min-height: 270px; padding: 20px 16px; }
+  .skill-card h3 { font-size: 15px; }
+  .timeline { margin-top: 40px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 9px; padding-left: 22px; }
+  .timeline-content h3 { font-size: 19px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-art { height: 190px; }
+  .education-layout { gap: 30px; }
+  .contact-form { padding: 23px 19px; }
+  .footer-inner { flex-wrap: wrap; }
+  .footer-inner p { order: 3; flex-basis: 100%; }
+}
+@media (max-width: 390px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-card { min-height: auto; }
+  .skill-card p { min-height: 0; }
+  .about-facts { gap: 5px; }
+  .about-facts span { font-size: 9px; }
+  .hero h1 { font-size: 43px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+  
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Agbo Nyakibe Jeffrey home">
+        <span class="brand-mark">AJ</span>
+        <span>AGBO <b>JEFFREY</b></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a class="nav-contact" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-grid container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="status-dot"></span> OPEN TO OPPORTUNITIES & COLLABORATION</p>
+          <p class="hero-kicker">HELLO, I'M</p>
+          <h1>Agbo Nyakibe <span>Jeffrey.</span></h1>
+          <h2>IT Professional <i aria-hidden="true">·</i> General Service Provider <i aria-hidden="true">·</i> AI &amp; Technology Enthusiast</h2>
+          <p class="hero-description">Building digital solutions, delivering technical services, and creating opportunities through innovation.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#contact">Get in touch</a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="meta-icon">⌖</span> Port Harcourt, Rivers State, Nigeria</span>
+            <span><span class="meta-icon">✳</span> Curious mind. Practical solutions.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="image-frame">
+            <!-- Replace hero-placeholder.jpg with your portrait. Keep the same filename or update the src. -->
+            <img src="assets/images/hero-placeholder.jpg" alt="Portrait of Agbo Nyakibe Jeffrey" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="image-placeholder">
+              <span class="placeholder-icon">＋</span>
+              <strong>YOUR PORTRAIT GOES HERE</strong>
+              <small>Add your photo as <code>hero-placeholder.jpg</code></small>
+            </div>
+            <div class="image-caption"><span class="caption-line"></span> TECHNOLOGY · SERVICE · INNOVATION</div>
+          </div>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="floating-card"><span class="floating-icon">✦</span><span><b>Always learning</b><small>Growing through technology</small></span></div>
+          <span class="hero-index">01 / PORTFOLIO</span>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>SCROLL TO DISCOVER</span><span class="scroll-line"></span><span>01 — 06</span></div>
+    </section>
+
+    <section class="section section-light" id="about">
+      <div class="container two-column">
+        <div class="section-heading reveal">
+          <p class="eyebrow dark-eyebrow">01 / ABOUT ME</p>
+          <h2>Technology with purpose.<br><span>Service with impact.</span></h2>
+        </div>
+        <div class="about-copy reveal">
+          <p class="lead">I am a technology enthusiast, entrepreneur, and general service provider passionate about innovation, problem-solving, digital transformation, and continuous learning.</p>
+          <p>My interests bring together computer science, emerging AI tools, technical installations, and practical business services. I enjoy learning how technology works and applying that knowledge to solve real-world problems for people and businesses.</p>
+          <p>As the CEO of Famous Jeymart Service, I also value reliability, customer relationships, and delivering useful services with care and professionalism.</p>
+          <div class="about-facts">
+            <div><strong>01</strong><span>Technology-minded</span></div>
+            <div><strong>02</strong><span>Entrepreneurial</span></div>
+            <div><strong>03</strong><span>Solution-focused</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="skills">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">02 / SKILLS &amp; EXPERTISE</p>
+          <h2>A versatile skill set for <span>practical challenges.</span></h2>
+          <p class="section-intro">A developing mix of digital, technical, and business capabilities.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="card-number">01</div><div class="skill-symbol">⌘</div>
+            <h3>Web &amp; Programming</h3>
+            <p>Building a foundation in frontend development and programming.</p>
+            <div class="tag-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Python — Beginner</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <div class="card-number">02</div><div class="skill-symbol">✧</div>
+            <h3>AI &amp; Digital Tools</h3>
+            <p>Exploring AI-assisted workflows, creative tools, and effective prompting.</p>
+            <div class="tag-list"><span>AI Tools</span><span>Prompt Engineering</span><span>Digital Creativity</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <div class="card-number">03</div><div class="skill-symbol">⌁</div>
+            <h3>Technical Services</h3>
+            <p>Hands-on installation and support services for homes and businesses.</p>
+            <div class="tag-list"><span>CCTV Installation</span><span>Satellite Systems</span><span>Technical Support</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <div class="card-number">04</div><div class="skill-symbol">◈</div>
+            <h3>Business &amp; Delivery</h3>
+            <p>Coordinating services and focusing on dependable customer experiences.</p>
+            <div class="tag-list"><span>Project Coordination</span><span>Business Management</span><span>Customer Service</span></div>
+          </article>
+        </div>
+        <p class="skills-note">Skill levels are not represented as percentages. This keeps the portfolio honest and avoids suggesting proficiency levels that have not been formally assessed.</p>
+      </div>
+    </section>
+
+    <section class="section section-light" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow dark-eyebrow">03 / EXPERIENCE</p>
+          <h2>Work built around <span>service and growth.</span></h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">ENTREPRENEURSHIP</div>
+            <div class="timeline-content">
+              <h3>CEO — Famous Jeymart Service</h3>
+              <p class="timeline-subtitle">Business leadership · General services</p>
+              <p>Leading a general services business focused on supplies, technical installations, and customer-focused solutions. Responsibilities include business coordination, service delivery, and building lasting customer relationships.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">TECHNICAL EXPERIENCE</div>
+            <div class="timeline-content">
+              <h3>Technical Installation &amp; Support</h3>
+              <p class="timeline-subtitle">CCTV · Satellite systems · General technical services</p>
+              <p>Practical experience supporting CCTV camera and satellite installation work, with an interest in expanding technical knowledge and service capabilities.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">PROFESSIONAL DEVELOPMENT</div>
+            <div class="timeline-content">
+              <h3>AI &amp; Web Development Learning</h3>
+              <p class="timeline-subtitle">Ongoing learning</p>
+              <p>Developing skills in frontend web technologies, Python fundamentals, AI tools, and prompt engineering through continuous learning and practical projects.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 / SELECTED PROJECTS</p>
+          <h2>Ideas turned into <span>real-world work.</span></h2>
+          <p class="section-intro">A selection of business, technical, and creative work. Add project photos and live links as they become available.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card project-featured reveal">
+            <div class="project-art art-business"><span class="art-label">BUSINESS / DIGITAL PRESENCE</span><div class="art-monogram">FJ<span>.</span></div><span class="art-footer">FAMOUS JEYMART SERVICE</span></div>
+            <div class="project-info"><div class="project-topline"><span>01 — BUSINESS</span><span>PORTFOLIO PROJECT</span></div><h3>Famous Jeymart Service</h3><p>A business identity and digital presence concept for showcasing general services, supplies, and technical installation solutions.</p><a class="text-link" href="https://wa.me/2348068034201" target="_blank" rel="noopener noreferrer">Enquire about services <span>↗</span></a></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-cctv"><span class="art-label">TECHNICAL / SECURITY</span><div class="camera-graphic">◉</div><span class="art-footer">CCTV INSTALLATION</span></div>
+            <div class="project-info"><div class="project-topline"><span>02 — TECHNICAL</span><span>FIELD WORK</span></div><h3>CCTV Installation</h3><p>Camera installation and surveillance system projects for practical security needs.</p><span class="project-status">Add project photos and details</span></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-satellite"><span class="art-label">TECHNICAL / CONNECTIVITY</span><div class="satellite-graphic">⌁</div><span class="art-footer">SATELLITE SYSTEMS</span></div>
+            <div class="project-info"><div class="project-topline"><span>03 — TECHNICAL</span><span>FIELD WORK</span></div><h3>Satellite Installation</h3><p>Satellite dish, cabling, and signal setup work to help customers access television services.</p><span class="project-status">Add project photos and details</span></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-creative"><span class="art-label">AI / CREATIVE</span><div class="creative-graphic">✳</div><span class="art-footer">STORY · PROMPT · CREATE</span></div>
+            <div class="project-info"><div class="project-topline"><span>04 — CREATIVE</span><span>ONGOING</span></div><h3>AI Content &amp; Storytelling</h3><p>Exploring AI-assisted storytelling, creative concepts, and prompt development for engaging digital content.</p><span class="project-status">Add sample work and links</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="education">
+      <div class="container two-column education-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow dark-eyebrow">05 / EDUCATION &amp; CERTIFICATIONS</p>
+          <h2>Learning is a <span>lifelong practice.</span></h2>
+          <p class="section-intro dark-intro">Academic foundations and professional development that support my journey.</p>
+        </div>
+        <div class="credentials reveal">
+          <article class="credential-card">
+            <span class="credential-icon">▤</span>
+            <div><p class="credential-type">ACADEMIC QUALIFICATION</p><h3>Higher National Diploma (HND)</h3><p>Computer Science — Lower Credit</p><span class="credential-place">Abia State Polytechnic, Aba</span></div>
+          </article>
+          <article class="credential-card">
+            <span class="credential-icon">✧</span>
+            <div><p class="credential-type">PROFESSIONAL TRAINING</p><h3>ITF-AI Level 3 Specialist</h3><p>In view — currently pursuing</p><span class="credential-place">Status: In progress</span></div>
+          </article>
+          <article class="credential-card">
+            <span class="credential-icon">✓</span>
+            <div><p class="credential-type">CERTIFICATE</p><h3>Health, Safety &amp; Environment (HSE)</h3><p>HSE Certificate</p><span class="credential-place">Add issuing institution and year</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta">
+      <div class="container cta-inner reveal">
+        <p class="eyebrow">LET'S BUILD SOMETHING USEFUL</p>
+        <h2>Good ideas grow through <span>collaboration.</span></h2>
+        <p>Whether you have a project, a service enquiry, or a professional opportunity, I would be glad to hear from you.</p>
+        <a class="button button-primary" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section section-light contact-section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <p class="eyebrow dark-eyebrow">06 / CONTACT</p>
+          <h2>Have a project<br>in <span>mind?</span></h2>
+          <p class="contact-intro">Send a message about a project, business enquiry, collaboration, or opportunity.</p>
+          <div class="contact-details">
+            <a href="mailto:agbojeffery@gmail.com"><span class="contact-icon">✉</span><span><small>EMAIL</small>agbojeffery@gmail.com</span></a>
+            <a href="tel:+2348068034201"><span class="contact-icon">⌕</span><span><small>PHONE</small>+234 806 803 4201</span></a>
+            <a href="https://wa.me/2348068034201" target="_blank" rel="noopener noreferrer"><span class="contact-icon">↗</span><span><small>WHATSAPP</small>Chat on WhatsApp</span></a>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub placeholder">GitHub ↗</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn placeholder">LinkedIn ↗</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook placeholder">Facebook ↗</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-heading"><span>YOUR MESSAGE</span><span class="form-star">✳</span></div>
+          <label for="senderName">Your name</label>
+          <input id="senderName" name="name" type="text" placeholder="Enter your name" autocomplete="name" required>
+          <label for="senderEmail">Your email</label>
+          <input id="senderEmail" name="email" type="email" placeholder="name@example.com" autocomplete="email" required>
+          <label for="messageSubject">Subject</label>
+          <input id="messageSubject" name="subject" type="text" placeholder="What would you like to discuss?" required>
+          <label for="senderMessage">Message</label>
+          <textarea id="senderMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          <button class="button button-primary submit-button" type="submit">Prepare message <span aria-hidden="true">↗</span></button>
+          <p class="form-note" id="formStatus" role="status">Your email app will open with your message ready to send. To enable online form delivery, configure the FORM_ENDPOINT in the JavaScript section of this file.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#home"><span class="brand-mark">AJ</span><span>AGBO <b>JEFFREY</b></span></a>
+      <p>Designed with purpose. Built for what comes next.</p>
+      <span>© <span id="currentYear"></span> Agbo Nyakibe Jeffrey</span>
+    </div>
+  </footer>
+
+  <a class="back-to-top" href="#home" aria-label="Back to top">↑</a>
+<script>
+/* ==========================================
+   AGBO NYAKIBE JEFFREY — PORTFOLIO SCRIPTS
+   ========================================== */
+
+// 1. Mobile navigation
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+  });
+}
+
+// 2. Update footer year automatically
+const yearElement = document.getElementById("currentYear");
+if (yearElement) yearElement.textContent = new Date().getFullYear();
+
+// 3. Scroll progress and back-to-top button
+const progressBar = document.getElementById("scrollProgress");
+const backToTop = document.querySelector(".back-to-top");
+
+function updateScrollUI() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+  if (progressBar) progressBar.style.width = `${progress}%`;
+  if (backToTop) backToTop.classList.toggle("visible", window.scrollY > 450);
+}
+
+window.addEventListener("scroll", updateScrollUI, { passive: true });
+updateScrollUI();
+
+// 4. Reveal sections as they enter the screen
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+// 5. Contact form email engine
+// DEFAULT: opens the visitor's email application with a pre-filled message.
+// OPTIONAL: set FORM_ENDPOINT to your FormSubmit AJAX endpoint to use an online
+// form service instead. Example:
+// const FORM_ENDPOINT = "https://formsubmit.co/ajax/agbojeffery@gmail.com";
+// FormSubmit may require you to confirm/activate the email address the first time.
+// Do not put passwords, API secrets, or private keys in this public JavaScript file.
+
+const FORM_ENDPOINT = "";
+const PORTFOLIO_EMAIL = "agbojeffery@gmail.com";
+
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) return;
+
+    const formData = new FormData(contactForm);
+    const name = String(formData.get("name") || "").trim();
+    const senderEmail = String(formData.get("email") || "").trim();
+    const subject = String(formData.get("subject") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const emailBody =
+      `Hello Agbo Nyakibe Jeffrey,\n\n${message}\n\n` +
+      `Regards,\n${name}\nReply email: ${senderEmail}`;
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+
+    if (FORM_ENDPOINT.trim()) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            name,
+            email: senderEmail,
+            subject,
+            message: emailBody,
+            _subject: `Portfolio enquiry: ${subject}`,
+            _replyto: senderEmail
+          })
+        });
+
+        if (!response.ok) throw new Error("The online email service could not accept the message.");
+
+        if (formStatus) {
+          formStatus.textContent = "Your message has been submitted. Thank you for getting in touch.";
+        }
+        contactForm.reset();
+      } catch (error) {
+        if (formStatus) {
+          formStatus.textContent = "Online sending was unsuccessful. Your email app will open so you can send the message instead.";
+        }
+        const mailto = `mailto:${PORTFOLIO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+        window.location.href = mailto;
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+      }
+    } else {
+      const mailto = `mailto:${PORTFOLIO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+      if (formStatus) {
+        formStatus.textContent = "Opening your email application. Review the message and press Send in that application.";
+      }
+
+      window.location.href = mailto;
+    }
+  });
+}
+
+</script>
+</body>
+</html>
